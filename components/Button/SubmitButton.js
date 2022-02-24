@@ -4,6 +4,7 @@ const SubmitButton = ({
   text = "submit",
   extraClass = "",
   bgColor = "bg-lightGreen",
+
   hoverBg = "hover:bg-lightGreen-tint-100",
   activeBg = "active:bg-lightGreen-shade-200",
   textColor = "text-white",
