@@ -1,16 +1,715 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
 html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+p,
+div,
+article,
+ul,
+li {
+  font-family: "DM Sans", sans-serif;
 }
 
-a {
-  color: red;
-  text-decoration: none;
+.wrappper {
+  width: 100%;
+}
+.pb0 {
+  padding-bottom: 0 !important;
 }
 
-* {
+.inputWrapper .PhoneInput {
+  background: white;
+  padding: 0.75rem 1.5rem;
+  color: #4d5a68;
+  border-radius: 4px;
+  border: 1px solid #d0d3d6;
+  line-height: 1.2rem;
+}
+.inputWrapper input:focus {
+  outline: none;
+}
+
+/*=====================================
+DOCTOR SECTION START
+=====================================*/
+
+/*=====================================
+SEARCH ALL & START
+=====================================*/
+.searchAll .linkList > a {
+  padding: 8px 8px;
+  background: #f8f8fa;
+  border-radius: 4px;
+  font-size: 12px;
+  display: inline-block;
+  color: #4d5a68;
+  margin-bottom: 8px;
+  margin-right: 8px;
+}
+
+/*=====================================
+NEXT IMAGE RESPONSIVE START
+=====================================*/
+
+.imageContainer {
+  width: 100%;
+}
+.imageContainer > span {
+  position: unset !important;
+}
+.imageContainer .image {
+  object-fit: contain;
+  width: 100% !important;
+  position: relative !important;
+  height: unset !important;
+}
+
+/*=====================================
+NEXT IMAGE RESPONSIVE ENDS
+=====================================*/
+
+/*=====================================
+Custom select start
+=====================================*/
+
+.select {
+  position: relative;
+  min-width: 200px;
+}
+.select svg {
+  position: absolute;
+  right: 12px;
+  top: calc(50% - 3px);
+  width: 10px;
+  height: 6px;
+  stroke-width: 2px;
+  stroke: #9098a9;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+.select select {
+  -webkit-appearance: none;
+  padding: 10px 40px 10px 12px;
+  width: 100%;
+  border: 1px solid #d0d3d6;
+  /* border-radius: 5px; */
+  /* background: #fff; */
+  /* box-shadow: 0 1px 3px -2px #9098a9; */
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 16px;
+  transition: all 150ms ease;
+}
+.select select:required:invalid {
+  color: #5a667f;
+}
+.select select option {
+  color: #223254;
+}
+.select select option[value=""][disabled] {
+  display: none;
+}
+.select select:focus {
+  outline: none;
+  border-color: #07f;
+  box-shadow: 0 0 0 2px rgba(0, 119, 255, 0.2);
+}
+.select select:hover + svg {
+  stroke: #07f;
+}
+.sprites {
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  user-select: none;
+}
+.homepage select:focus {
+  outline: none;
+  border-color: transparent;
+  box-shadow: none;
+}
+.homepage svg {
+  stroke: #fff;
+}
+.homepage {
+  color: #fff;
+}
+.homepage select {
+  border: none;
+  box-shadow: none;
+}
+.homepage select option {
+  color: #223254;
+}
+.custom-date-input > div {
+  display: inline-block;
+}
+.custom-date-input {
+  min-width: 175px;
+  /* width: auto; */
+}
+
+.ambulanceServicePage select:focus {
+  outline: none;
+  border-color: #d0d3d6;
+  box-shadow: none;
+}
+
+/*=====================================
+Custom select ends
+=====================================*/
+
+/*=====================================
+Slider dot design start
+=====================================*/
+
+.dotGroup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.dotGroup > button {
+  width: 12px;
+  height: 12px;
+  background: #d0d3d6;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+.dotGroup > button.carousel__dot--selected {
+  background: #71bffb;
+}
+/*=====================================
+Slider dot design ends
+=====================================*/
+
+.login a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.login {
+  color: #078ff7;
+  border: 1px solid #078ff7;
+  border-radius: 3px;
+}
+
+/*=====================================================
+CUSTOM RADIO BUTTON STYLE START
+======================================================*/
+
+.customRadioBtn label {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.customRadioBtn label input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.customRadioBtn .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 27px;
+  width: 27px;
+  border: 2px solid #dbeffe;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.customRadioBtn label:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.customRadioBtn input:checked ~ .checkmark {
+  background-color: #2196f3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.customRadioBtn .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.customRadioBtn input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.customRadioBtn .checkmark:after {
+  top: 7px;
+  left: 7px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: white;
+}
+
+/*=====================================================
+CUSTOM RADIO BUTTON STYLE ENDS
+======================================================*/
+
+/*=====================================================
+REACT SELECT SEARCH START
+======================================================*/
+/**
+ * Main wrapper
+ */
+.select-search {
+  min-width: 150px;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+  font-family: "Nunito Sans", sans-serif;
   box-sizing: border-box;
+}
+
+.select-search *,
+.select-search *::after,
+.select-search *::before {
+  box-sizing: inherit;
+}
+
+/**
+* Value wrapper
+*/
+.select-search__value {
+  position: relative;
+  z-index: 1;
+}
+
+.select-search__value::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: calc(50% - 9px);
+  right: 19px;
+  width: 11px;
+  height: 11px;
+}
+
+/**
+* Input
+*/
+.select-search__input {
+  display: block;
+  height: 46px;
+  width: 100%;
+  padding: 0 40px 0 16px;
+  background: #fff;
+  border: 1px solid transparent;
+  box-shadow: 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  outline: none;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 14px;
+  text-align: left;
+  text-overflow: ellipsis;
+  line-height: 36px;
+  -webkit-appearance: none;
+}
+
+.transparent .select-search__input {
+  background: transparent;
+  border: 1px solid #fff;
+}
+.round .select-search__input {
+  border-radius: 50px !important;
+}
+
+.select-search__input::-webkit-search-decoration,
+.select-search__input::-webkit-search-cancel-button,
+.select-search__input::-webkit-search-results-button,
+.select-search__input::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+}
+
+.select-search__input:not([readonly]):focus {
+  cursor: initial;
+}
+
+/**
+* Options wrapper
+*/
+.select-search__select {
+  background: #fff;
+  box-shadow: 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.15);
+}
+
+/**
+* Options
+*/
+.select-search__options {
+  list-style: none;
+}
+
+/**
+* Option row
+*/
+.select-search__row:not(:first-child) {
+  border-top: 1px solid #eee;
+}
+
+/**
+* Option
+*/
+.select-search__option,
+.select-search__not-found {
+  display: block;
+  height: 36px;
+  width: 100%;
+  padding: 0 16px;
+  background: #fff;
+  border: none;
+  outline: none;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.select-search--multiple .select-search__option {
+  height: 48px;
+}
+
+.select-search__option.is-selected {
+  background: rgba(25, 178, 189, 0.863);
+  color: #fff;
+}
+
+.select-search__option.is-highlighted,
+.select-search__option:not(.is-selected):hover {
+  background: rgb(25 179 189);
+}
+
+.select-search__option.is-highlighted.is-selected,
+.select-search__option.is-selected:hover {
+  background: rgb(25 179 189);
+  color: #fff;
+}
+
+/**
+* Group
+*/
+.select-search__group-header {
+  font-size: 10px;
+  text-transform: uppercase;
+  background: #eee;
+  padding: 8px 16px;
+}
+
+/**
+* States
+*/
+.select-search.is-disabled {
+  opacity: 0.5;
+}
+
+.select-search.is-loading .select-search__value::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50'%3E%3Cpath fill='%232F2D37' d='M25,5A20.14,20.14,0,0,1,45,22.88a2.51,2.51,0,0,0,2.49,2.26h0A2.52,2.52,0,0,0,50,22.33a25.14,25.14,0,0,0-50,0,2.52,2.52,0,0,0,2.5,2.81h0A2.51,2.51,0,0,0,5,22.88,20.14,20.14,0,0,1,25,5Z'%3E%3CanimateTransform attributeName='transform' type='rotate' from='0 25 25' to='360 25 25' dur='0.6s' repeatCount='indefinite'/%3E%3C/path%3E%3C/svg%3E");
+  background-size: 11px;
+}
+
+.select-search:not(.is-disabled) .select-search__input {
+  cursor: pointer;
+}
+
+/**
+* Modifiers
+*/
+.select-search--multiple {
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.select-search:not(.is-loading):not(.select-search--multiple)
+  .select-search__value::after {
+  transform: rotate(45deg);
+  border-right: 1px solid #000;
+  border-bottom: 1px solid #000;
+  pointer-events: none;
+}
+
+.transparent.select-search:not(.is-loading):not(.select-search--multiple)
+  .select-search__value::after {
+  transform: rotate(45deg);
+  border-right: 1px solid #fff !important;
+  border-bottom: 1px solid #fff !important;
+  pointer-events: none;
+}
+.transparent.select-search .select-search__input {
+  color: #fff;
+}
+.select-search--multiple .select-search__input {
+  cursor: initial;
+}
+
+.select-search--multiple .select-search__input {
+  border-radius: 3px 3px 0 0;
+}
+
+.select-search--multiple:not(.select-search--search) .select-search__input {
+  cursor: default;
+}
+
+.select-search:not(.select-search--multiple) .select-search__input:hover {
+  /* border-color: #2fcc8b; */
+}
+
+.select-search:not(.select-search--multiple) .select-search__select {
+  position: absolute;
+  z-index: 2;
+  top: 44px;
+  right: 0;
+  left: 0;
+  border-radius: 3px;
+  overflow: auto;
+  max-height: 360px;
+}
+
+.select-search--multiple .select-search__select {
+  position: relative;
+  overflow: auto;
+  max-height: 260px;
+  border-top: 1px solid #eee;
+  border-radius: 0 0 3px 3px;
+}
+
+.select-search__not-found {
+  height: auto;
+  padding: 16px;
+  text-align: center;
+  color: #888;
+}
+/*=====================================================
+REACT SELECT SEARCH ENDS 
+======================================================*/
+
+@media only screen and (min-width: 320px) {
+  .wrappper {
+    width: calc(100% - 30px);
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (min-width: 640px) {
+  .wrappper {
+    width: calc(100% - 30px);
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (min-width: 641px) {
+  .footer {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .footer {
+    padding: 0px 20px;
+  }
+  .footerContainer {
+    width: 1024px;
+    margin: 0 auto;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .footerContainer {
+    width: 1280px;
+    margin: 0 auto;
+  }
+}
+@media only screen and (min-width: 1281px) {
+  .wrappper {
+    width: calc(100% - 60px);
+    padding: 0px 30px;
+    margin: 0 auto;
+  }
+}
+@media only screen and (min-width: 1536px) {
+  .wrappper {
+    width: calc(100% - 100px);
+    padding: 0px 50px;
+    margin: 0 auto;
+  }
+}
+@media only screen and (min-width: 1920px) {
+  .wrappper {
+    width: calc(100% - 250px);
+    padding: 0px 125px;
+    margin: 0 auto;
+  }
+}
+
+/*=====================================
+Ambulance Request Roem Date Input Design start
+=====================================*/
+.dateWrapper .custom-date-input {
+  width: 100%;
+}
+.dateWrapper .custom-date-input input {
+  border: 0;
+  font-size: 14px;
+  color: #93a1af;
+  width: 100%;
+  height: 100%;
+  padding: 13px 8px;
+}
+.dateWrapper {
+  border: 1px solid #d0d3d6;
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  border-radius: 2px;
+  padding-right: 8px;
+}
+.dateWrapper img {
+  transform: translateX(0);
+}
+.dateWrapper .custom-date-input input:focus {
+  outline: none;
+}
+
+/*=====================================
+Hospital Details Page Design start
+=====================================*/
+.hospitaFeatuiredSlider button.buttonBack___1mlaL.carousel__back-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+}
+
+.hospitaFeatuiredSlider button.buttonNext___2mOCa.carousel__next-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+}
+.careLinks a {
+  font-size: 12px;
+  background: #b8dffd;
+  color: #04518c;
+  border-radius: 4px;
+  text-align: center;
+  padding: 4px 8px 4px 8px;
+  display: inline-block;
+  margin: 0 8px 8px 0;
+}
+.serviceLink a {
+  background: #078ff7;
+  border-radius: 100px;
+  text-align: center;
+  color: #ffffff;
+  display: inline-block;
+  padding: 8px 16px;
+  margin: 0 8px 8px 0;
+}
+
+/*=====================================
+Ambulance Page Design start
+=====================================*/
+.ambulanceServiceSlider button.buttonBack___1mlaL.carousel__back-button {
+  position: absolute;
+  top: 50%;
+  left: -14px;
+  transform: translateY(-50%);
+}
+.ambulanceServiceSlider button.buttonNext___2mOCa.carousel__next-button {
+  position: absolute;
+  top: 50%;
+  right: -14px;
+  transform: translateY(-50%);
+}
+
+/*=====================================
+Faq Page Accordion start
+=====================================*/
+/* Style the accordion content panel. Note: hidden by default */
+.accordion__content {
+  background-color: white;
+  overflow: hidden;
+  transition: max-height 0.6s ease;
+  /* max-height: 0px; */
+}
+
+/*=====================================
+Table Pagination start
+=====================================*/
+.diagonsticTable .tablePagination {
+  text-align: center;
+}
+.diagonsticTable .tablePagination select {
+  background: transparent;
+}
+
+/*=====================================
+Custom scrollbar for homepage tab 
+=====================================*/
+.homepageTab::-webkit-scrollbar {
+  width: 8px;
+}
+.homepageTab::-webkit-scrollbar-track {
+  background: #f8f8fa;
+  border-radius: 10px;
+}
+.homepageTab::-webkit-scrollbar-thumb {
+  background: #d0d3d6;
+  border-radius: 10px;
+}
+.homepageTab::-webkit-scrollbar-thumb:hover {
+  background: #d0d3d6;
+}
+
+/*=====================================
+React phone number input focus 
+=====================================*/
+.PhoneInput--focus {
+  border: 1px solid #1684d4 !important;
+}
+
+.inputFocus:focus {
+  border: 2px solid #1684d4 !important;
+}
+
+/*=====================================
+CUSTOM MAP Radious
+=====================================*/
+.customMap > div > div {
+  border-radius: 5px;
 }
